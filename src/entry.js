@@ -2,9 +2,8 @@
 
 var React = require("react");
 
-var DoctorListing = require('./components/DoctorListing');
+var DoctorList = require('./components/DoctorList');
 
 module.exports.init = function(doctors) {
-    var doctor = doctors[0];
-    return <DoctorListing {...doctor} />;
+    return <DoctorList doctors={doctors} />;
 };
