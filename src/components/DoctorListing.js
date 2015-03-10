@@ -4,12 +4,6 @@ var React = require('react');
 
 var DoctorListing = React.createClass({
 
-  getInitialState: function() {
-    return {
-      open: false
-    }
-  },
-
   click: function () {
     this.setState({open: !this.state.open})
   },
@@ -21,11 +15,11 @@ var DoctorListing = React.createClass({
   render: function() {
     return (
       <div className="doctor-listing">
-        <div className="toggle" onClick={ this.click }>
+        <div className="toggle" onClick={ this.props.toggle }>
           <h4 className="doctor-listing-name">{ this.props.name }</h4>
           <span className="doctor-listing-address">{ this.props.address }</span>
         </div>
-        {this.state.open ? this.renderDescription(): null}
+        {this.props.open ? this.renderDescription(): null}
       </div>
     )
   }

@@ -44,16 +44,30 @@ describe('DoctorListing', function() {
     expect(elem).toEqual([]);
   });
 
-  it('shows description on click', function() {
+  it('shows description when open', function() {
+    var doctor = TestUtils.renderIntoDocument(
+      <DoctorListing open={ true }{...doctorData} />
+    );
+    var elem = TestUtils.findRenderedDOMComponentWithClass(doctor, "doctor-listing-description");
+    expect(elem.getDOMNode().textContent).toEqual("Pepper-style carbonated soft drink");
+  });
+
+  it('shows calls the toggle prop', function() {
+
+    doctorData.toggle = jest.genMockFn()
+
     var doctor = TestUtils.renderIntoDocument(
       <DoctorListing {...doctorData} />
     );
 
     var toggle = TestUtils.findRenderedDOMComponentWithClass(doctor, "toggle");
+    
+    // Sanity check that function is not called before the click
+    expect(doctorData.toggle.mock.calls).toEqual([]);
+
     React.addons.TestUtils.Simulate.click(toggle);
 
-    var elem = TestUtils.findRenderedDOMComponentWithClass(doctor, "doctor-listing-description");
-    expect(elem.getDOMNode().textContent).toEqual("Pepper-style carbonated soft drink");
+    expect(doctorData.toggle.mock.calls).toBeTruthy();
   });
 
 });
