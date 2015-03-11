@@ -18,6 +18,10 @@ var DoctorMap = React.createClass({
           map: map,
       });
 
+      google.maps.event.addListener(marker, 'click', function() {
+        self.props.toggle(doctor.id)
+      });
+
       //extend the bounds to include each marker's position
       bounds.extend(marker.position);
     });
