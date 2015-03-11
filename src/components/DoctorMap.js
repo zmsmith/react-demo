@@ -8,7 +8,7 @@ var
 var DoctorMap = React.createClass({
 
   componentDidMount: function () {
-
+    var self = this;
     var map = new google.maps.Map(this.getDOMNode());
     var bounds = new google.maps.LatLngBounds();
 
@@ -17,6 +17,8 @@ var DoctorMap = React.createClass({
           position: new google.maps.LatLng(doctor.lat, doctor.lng),
           map: map,
       });
+
+      //extend the bounds to include each marker's position
       bounds.extend(marker.position);
     });
     map.fitBounds(bounds);

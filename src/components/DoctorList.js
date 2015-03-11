@@ -9,25 +9,16 @@ var
 
 var DoctorList = React.createClass({
 
-  getInitialState: function() {
-    return {activeListing: null}
-  },
-
   createListingAction: function(id) {
     return function() {
-      if (this.state.activeListing === id){
-        this.setState({activeListing: null})
-      } else {
-        this.setState({activeListing: id})
-      }
+      this.props.toggle(id)
     }.bind(this)
   },
-
 
   renderDoctor: function(doctor) {
     doctor = _.extend(doctor, {
       key: doctor.id,
-      open: this.state.activeListing === doctor.id,
+      open: this.props.activeListing === doctor.id,
       toggle: this.createListingAction(doctor.id)
     })
     return <DoctorListing {...doctor} />

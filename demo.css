@@ -18,3 +18,8 @@
 .doctor-map {
     height: 500px;
 }
+
+.col {
+    float: left;
+    width: 50%;
+}
