@@ -14,3 +14,7 @@
 .doctor-listing {
     border-bottom: 1px solid #333;
 }
+
+.doctor-map {
+    height: 500px;
+}

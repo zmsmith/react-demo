@@ -5,19 +5,25 @@
   <body>
     <div id="doctor-search"></div>
     <script src="http://fb.me/react-with-addons-0.12.2.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js">
+    </script>
     <script src="demo.js" type="text/javascript"></script>
     <script type="text/javascript">
       var doctors = [{
         "id": 1,
         "name": "Dr. J",
         "address": "1000 Hall Fame Ave",
-        "description": 'Hall of Fame basketball forward Julius Erving, or "Dr. J," was an acrobatic player in the NBA and ABA. His dunks and graceful play helped change the game.'
+        "description": 'Hall of Fame basketball forward Julius Erving, or "Dr. J," was an acrobatic player in the NBA and ABA. His dunks and graceful play helped change the game.',
+        "lat": 1,
+        "lng": 1
       },
       {
         "id": 2,
         "name": "Dr. Oz",
         "address": "Cleveland, OH",
-        "description": "After five years as a health expert on \"The Oprah Winfrey Show,\" Dr. Mehmet Oz gets an hour of his own each weekday to discuss viewers' health-and-wellness concerns."
+        "description": "After five years as a health expert on \"The Oprah Winfrey Show,\" Dr. Mehmet Oz gets an hour of his own each weekday to discuss viewers' health-and-wellness concerns.",
+        "lat": 2,
+        "lng": 2
       }];
       var component = require("DoctorSearch").init(doctors);
       React.render(component, document.getElementById("doctor-search"));
